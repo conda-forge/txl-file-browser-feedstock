@@ -1,6 +1,6 @@
-{% set python_min = '3.10' %}
+{% set python_min = "3.10" %}
 {% set name = "txl-file-browser" %}
-{% set version = "0.2.14" %}
+{% set version = "0.3.6" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +8,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/txl_file_browser-{{ version }}.tar.gz
-  sha256: 8b16efce9f5dd105f3a3572e28f26e3476d22c01afc1f62d17833ec0d3492eb3
+  sha256: 93818429f73835466d62c69fdbaa80e69bd679446aefa2ba6cbb10342e8055f8
 
 build:
   noarch: python
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
@@ -22,17 +22,14 @@ requirements:
     - hatchling
   run:
     - python >={{ python_min }}
-    - txl >=0.2.18,<0.3.0
+    - txl =0.3.2
 
 test:
-  # `pip check` was disabled, see: https://github.com/conda-forge/staged-recipes/pull/26869
-  #
-  # requires:
-  #   - pip
-  # commands:
-  #   - pip check
   requires:
+    - pip
     - python {{ python_min }}
+  commands:
+    - pip check
   imports:
     - txl_file_browser
 
