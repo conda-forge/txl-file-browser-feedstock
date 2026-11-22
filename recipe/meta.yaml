@@ -1,14 +1,14 @@
 {% set python_min = "3.10" %}
 {% set name = "txl-file-browser" %}
-{% set version = "0.3.6" %}
+{% set version = "0.3.10" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/txl_file_browser-{{ version }}.tar.gz
-  sha256: 93818429f73835466d62c69fdbaa80e69bd679446aefa2ba6cbb10342e8055f8
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/txl_file_browser-{{ version }}.tar.gz
+  sha256: 70383329216f597f36b37d0ba6badf6279a584f5d28713e97943e1e6d35b84ff
 
 build:
   noarch: python
